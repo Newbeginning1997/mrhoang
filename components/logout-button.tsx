@@ -4,7 +4,13 @@ import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export function LogoutButton({ parent = false }: { parent?: boolean }) {
+export function LogoutButton({
+  parent = false,
+  compact = false
+}: {
+  parent?: boolean;
+  compact?: boolean;
+}) {
   const [pending, setPending] = useState(false);
   const router = useRouter();
 
@@ -20,10 +26,19 @@ export function LogoutButton({ parent = false }: { parent?: boolean }) {
       type="button"
       onClick={logout}
       disabled={pending}
-      className="btn-secondary w-full justify-center sm:w-auto"
+      aria-label={compact ? "Đăng xuất" : undefined}
+      className={
+        compact
+          ? "btn-secondary h-10 w-10 shrink-0 px-0"
+          : "btn-secondary w-full justify-center sm:w-auto"
+      }
     >
       <LogOut className="h-4 w-4" aria-hidden />
-      {pending ? "Đang thoát..." : "Đăng xuất"}
+      {compact ? (
+        <span className="sr-only">{pending ? "Đang thoát..." : "Đăng xuất"}</span>
+      ) : (
+        pending ? "Đang thoát..." : "Đăng xuất"
+      )}
     </button>
   );
 }

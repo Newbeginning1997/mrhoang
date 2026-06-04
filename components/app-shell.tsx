@@ -72,7 +72,10 @@ export function AppShell({
               <h1 className="truncate text-base font-bold text-ink">{displayName}</h1>
             </div>
           </div>
-          <div className="hidden sm:block">
+          <div className="shrink-0 sm:hidden">
+            <LogoutButton compact />
+          </div>
+          <div className="hidden shrink-0 sm:block">
             <LogoutButton />
           </div>
         </div>
