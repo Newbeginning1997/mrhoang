@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.netlify/
+.npm-cache/
+out/
+
+.env
+.env.local
+.env.*.local
+
+*.log
+*.tsbuildinfo
