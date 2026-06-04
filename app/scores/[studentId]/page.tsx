@@ -3,6 +3,7 @@ import { createTeacherCommentAction } from "@/app/actions";
 import { AppShell } from "@/components/app-shell";
 import { ScoreLineChart } from "@/components/charts";
 import { PageHeader } from "@/components/page-header";
+import { StudentEvaluationCard } from "@/components/student-evaluation-card";
 import { StudentProfileCard } from "@/components/student-profile-card";
 import { requireCurrentUser } from "@/lib/auth";
 import { formatDateVN } from "@/lib/dates";
@@ -73,6 +74,8 @@ export default async function StudentReportPage({
         completedThisMonth={submissions?.length ?? 0}
         totalThisMonth={homework?.length ?? 0}
       />
+
+      <StudentEvaluationCard scores={scores ?? []} />
 
       <section className="mt-6 grid gap-6 lg:grid-cols-[1fr_360px]">
         <div className="surface p-5">

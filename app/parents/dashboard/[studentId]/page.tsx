@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { ParentShell } from "@/components/app-shell";
 import { ScoreLineChart } from "@/components/charts";
 import { PageHeader } from "@/components/page-header";
+import { StudentEvaluationCard } from "@/components/student-evaluation-card";
 import { StudentProfileCard } from "@/components/student-profile-card";
 import { requireParent } from "@/lib/auth";
 import { formatDateVN } from "@/lib/dates";
@@ -63,6 +64,8 @@ export default async function ParentStudentDetailPage({
         badges={badges ?? []}
         latestComment={comments?.[0] ?? null}
       />
+
+      <StudentEvaluationCard scores={scores ?? []} />
 
       <section className="mt-6 grid gap-6 lg:grid-cols-[1fr_360px]">
         <div className="surface p-5">
